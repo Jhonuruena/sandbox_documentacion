@@ -1,17 +1,24 @@
+import swaggerUi from "swagger-ui-express"
+import { swaggerSpec } from "./swagger.conf"; 
 import express,{Application, Request, Response} from 'express'
 
 class App{
     
     //Atributos declarados de typo any
-    public app: any
+    public app: Application
     private server: any
 
     //Crear el constructor
     constructor(){
         this.app = express()
         this.app.use(express.json())
+        this.app.use(
+            "/api-docs",
+            swaggerUi.serve,
+            swaggerUi.setup(swaggerSpec)
+        )
         this.routes()
-        
+    
     }
 
     //Crear metodo de rutas
