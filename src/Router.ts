@@ -30,7 +30,7 @@ class App{
 	//Crear metodo de rutas
 	private routes():void{
 		this.app.get( '/',(req:Request,res:Response)=>{
-			res.send('Hola con TypeScript')
+			res.send('Bienvenidos a typescript')
 		})
 
 		this.app.post( '/paciente',(req:Request,res:Response)=>{
