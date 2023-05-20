@@ -1,5 +1,5 @@
 
-import App from './Router'
+import App from './App'
 
 //Crer objeto de la clase App
 
