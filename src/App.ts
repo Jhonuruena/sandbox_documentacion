@@ -1,8 +1,11 @@
 import swaggerUi from 'swagger-ui-express'
 import { swaggerSpec } from './swagger.conf'
 import express, { Application, Request, Response } from 'express'
+import cors from 'cors'
+
 import PacienteRouter from './routes/Paciente.routes'
 import MedicoRouter from './routes/Medico.routes'
+import FormularioRouter from './routes/Formulario.routes'
 
 
 /**
@@ -27,7 +30,7 @@ class App {
 			swaggerUi.serve,
 			swaggerUi.setup(swaggerSpec)
 		)
-
+		this.app.use(cors())	
 		this.routes()
 
 	}
@@ -38,6 +41,7 @@ class App {
 	private routes(): void {
 		this.app.use('/', PacienteRouter)
 		this.app.use('/', MedicoRouter)
+		this.app.use('/', FormularioRouter)
 	}
 
 
